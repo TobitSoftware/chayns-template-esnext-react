@@ -1,9 +1,11 @@
 import webpack from 'webpack';
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import AppCachePlugin from 'appcache-webpack-plugin';
 
-const ROOT_PATH = path.resolve('./');
-const SERVER_URL = 'QA';
+const ROOT_PATH = path.resolve('./'),
+    SERVER_URL = 'QA',
+    TS = new Date().getTime();
 
 
 export default {
@@ -64,6 +66,17 @@ export default {
             filename: 'index.html',
             inject: true,
             hash: true
+        }),
+        new AppCachePlugin({
+            cache: [
+                `##Version: ${TS}`,
+                '',
+                '##JS',
+                'https://chayns-res.tobit.com/API/v3.1/js/chayns.min.js'
+            ],
+            network: ['*'],  // No network access allowed!
+            exclude: [/.*\.map$/],  // Exclude .map files
+            output: 'cache.manifest'
         })
     ]
 };
