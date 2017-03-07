@@ -4,12 +4,13 @@ This template will help you getting started with building Tapps for your chaynsÂ
 
 Setup
 -------------
-For your first start you can just run:
-
+Install all project dependencies:
 ```
-firstStart.bat
+npm i
 ```
-
+Build the empty folder structure of your project:
+```
+npm run setup
 ```
 Start your webpack-dev-server for debugging your project:
 ```
@@ -27,7 +28,6 @@ In package.json:
 ```
 "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
 ```
-here too
 
 When you have changed this settings you need to go to your Chayns site. There you need to follow these steps:
 
