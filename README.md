@@ -5,11 +5,8 @@ This template will help you getting started with building Tapps for your chaynsÂ
 Setup
 -------------
 For your first start you can just run:
-
 ```
 firstStart.bat
-```
-
 ```
 Start your webpack-dev-server for debugging your project:
 ```
