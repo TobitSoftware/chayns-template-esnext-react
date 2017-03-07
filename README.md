@@ -36,7 +36,6 @@ When you have changed this settings you need to go to your Chayns site. There yo
 3. Use external content
 4. Fill out the name and in the field data source put your ip like this: ```http://192.168.178.XXX/index.html```
 5. Click ```add```
-6. If your website isn't running make sure you have entered ```npm start```
 
 
 > **Hint:** Writing Tapps with React? You might also want to take a look at our [React Style Guide][2].
