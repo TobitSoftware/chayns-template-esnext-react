@@ -4,7 +4,7 @@
   "description": "Alibi",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js",
+    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
     "qa": "webpack -p --colors --progress --config ./webpack/qa.babel.js",
     "release": "webpack -p --colors --progress --config ./webpack/prod.babel.js",
     "setup": "mkdirp ./src/utils && mkdirp ./src/components/admin_view && mkdirp ./src/components/user_view"
