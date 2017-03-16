@@ -1,51 +1,38 @@
-/**
- * Created by PHugenroth on 13.02.2017.
- */
 import React from 'react';
 
-import ToDoInput from './user_view/ToDoInput';
-import ToDoList from './user_view/ToDoList';
-
+import UserList from './user_view/UserList';
+import PersonFinder from './admin_view/PersonFinder';
 
 export default class Content extends React.Component{
     constructor(){
         super();
+        /**
+         * Apply an array containing selected users to the content
+         * It can be filled by using the person finder in the chayns® manager view
+         */
         this.state = {
-            inputValue: '',
-            items: []
+            user: []
         };
-
-        this.inputOnChange = this.inputOnChange.bind(this);
-        this.inputOnBlur = this.inputOnBlur.bind(this);
+        this.addUser = this.addUser.bind(this);
     }
 
-    inputOnChange(event){
+    //Pushs an user object to the state 'user' and refresh's the react component 'UserList'
+    addUser(object) {
+        let user = this.state.user;
+        user.push(object.user);
         this.setState({
-            inputValue: event.target.value
-        })
+            user: user
+        });
     }
 
-    inputOnBlur(){
-        if(this.state.inputValue) {
-            let items = this.state.items;
-            items.push(this.state.inputValue);
-            this.setState({
-                items: items,
-                inputValue: ''
-            })
-        }
-    }
-
-    render(){
+    render() {
         return(
             <div className="tapp__content content">
-                <ToDoInput
-                    value={this.state.inputValue}
-                    onBlur={this.inputOnBlur}
-                    onChange={this.inputOnChange}
+                <PersonFinder
+                    addUser={this.addUser}  //Provide the addUser function to the person finder as a prop
                 />
-                <ToDoList
-                    items={this.state.items}
+                <UserList
+                    user={this.state.user} //Provide the user list array to the UserList element as a prop
                 />
             </div>
         );

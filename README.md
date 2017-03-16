@@ -1,5 +1,9 @@
 chayns with React + ES2015 - Template
 ===================
+This template contains a tapp using the chayns ModeSwitch, Accordion and PersonFinder components.<br>
+If you're a chayns® manager you can switch to the specific mode and a PersonFinder will get visible.<br>
+Using this PersonFinder you can select users which then will be appended to the user list.
+
 This template will help you getting started with building Tapps for your chayns®-Website with React and ES2015. First of all you have to make sure, that you have the latest version of [node.js][1] installed.
 
 Setup
