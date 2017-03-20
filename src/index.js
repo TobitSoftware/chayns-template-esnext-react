@@ -1,22 +1,47 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {ModeSwitch} from 'tobit-chayns_components/react-chayns-modeswitch';
+
+import { AppContainer } from 'react-hot-loader';
+import { ModeSwitch } from 'tobit-chayns_components/react-chayns-modeswitch';
 
 import App from './App';
 
+const tappElement = document.querySelector('.tapp');
+
 /**
- * The following Promise gets resolved, when the chayns API was successfully loaded and
- * every additional functionality of it is ready to go.
+ * Renders a component as entry point of your application into the tapp element.
+ * @param Component
+ */
+const render = Component => {
+    ReactDOM.render(
+        <AppContainer>
+            <Component />
+        </AppContainer>,
+        tappElement
+    );
+};
+
+/**
+ * The function waits till the chayns api is successfully loaded and
+ * every additional functionality of it is ready to go,
+ * renders the App component then
+ * and finally initializes the ModeSwitch.
+ * @return {Promise.<void>}
  */
 async function init() {
-    "use strict";
-    try{
+    try {
         await chayns.ready;
-        render();
-        if (module.hot) module.hot.accept('./App', render);
+
+        render(App);
+
+        // use hot-module-replacement if available
+        if (module.hot) {
+            module.hot.accept('./App', () => render(App));
+        }
+
         /**
-         * Initialize the ModeSwitch. The available modes are 'user mode' (default) and 'chayns® manager'
-         * You can specify content to display according to the current mode (see chayns 'mode' component
+         * Initialize the ModeSwitch. The available modes are 'user mode' (default) and 'chayns® manager'.
+         * You can specify content to display according to the current mode (see chayns 'mode' component).
          */
         ModeSwitch.init({
             groups: [{
@@ -25,17 +50,9 @@ async function init() {
                 name: 'chayns® manager'
             }]
         });
-    }catch (err){
+    } catch (err) {
         console.warn('no chayns environment found');
     }
 }
-
-const render = function(){
-    //Initialize the DOM by first rendering the intro and content elements imported above
-    ReactDOM.render(
-        <App/>,
-        document.querySelector('.tapp') //append the rendered elements to the div containing the class 'tapp'
-    );
-};
 
 init();
