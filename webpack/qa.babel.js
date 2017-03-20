@@ -2,7 +2,7 @@ import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import AppcacheWebpackPlugin from 'appcache-webpack-plugin';
-import getBaseConfig from './config';
+import getBaseConfig from './base-config';
 
 const ROOT_PATH = path.resolve('./');
 
