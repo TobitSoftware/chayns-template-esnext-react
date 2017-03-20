@@ -1,7 +1,7 @@
 {
-  "name": "chayns-template-es6-react",
+  "name": "chayns-template-esnext-react",
   "version": "1.0.1",
-  "description": "chayns-template-es6-react",
+  "description": "chayns-template-esnext-react",
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
