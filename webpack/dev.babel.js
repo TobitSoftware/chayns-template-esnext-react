@@ -1,7 +1,10 @@
+import path from 'path';
 import webpack from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 import getBaseConfig from './config';
+
+const ROOT_PATH = path.resolve('./');
 
 export default {
     ...getBaseConfig(true),
@@ -15,10 +18,7 @@ export default {
     devtool: 'inline-source-map',
     plugins: [
         new HtmlWebpackPlugin({
-            template: 'index.html',
-            inject:   true,
-            hash: true,
-            filename: 'index.html'
+            template: path.resolve(ROOT_PATH, 'src/index.dev.html')
         }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.LoaderOptionsPlugin({
