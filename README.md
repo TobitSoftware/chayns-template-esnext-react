@@ -27,7 +27,7 @@ You can now implement the example Tapp to your chayns® site:
 1. Go to configuration -> Tapps
 2. Click ```Add Tapp```
 3. Use external content
-4. Fill out the name and in the field data source put your ip like this: ```localhost:8080```
+4. Give the Tapp a name and type in the following URL : ```http://localhost:8080```
 5. Click ```add```
 
 
