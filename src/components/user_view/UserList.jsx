@@ -1,7 +1,7 @@
 import React from 'react';
 import Accordion from 'tobit-chayns_components/react-chayns-accordion';
 
-import './UserList.css';
+import './UserList.scss';
 
 export default class UserList extends React.Component {
 
@@ -23,9 +23,15 @@ export default class UserList extends React.Component {
         if(this.props.user.length > 0) {
             return this.props.user.map((user, index) => {
                 return (
-                    <div className="userItem" key={index}>
-                        <div className="userImage" style={{backgroundImage: 'url(http://graph.facebook.com/' + user.facebookId + '/picture?type=square'}}></div>
-                        <div className="userName">{user.name}</div>
+                    <div className="user" key={index}>
+                        <div
+                            className="user_image"
+                            style={{backgroundSize: 'cover', backgroundImage: 'url(http://graph.facebook.com/' + user.facebookId + '/picture?type=square'}}
+                        >
+                        </div>
+                        <div className="user_name">
+                            {user.name}
+                        </div>
                     </div>
                 )
             })
