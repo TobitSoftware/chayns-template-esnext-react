@@ -1,6 +1,6 @@
 {
   "name": "chayns-template-es6-react",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "chayns-template-es6-react",
   "main": "index.js",
   "scripts": {
@@ -13,12 +13,14 @@
   "license": "ISC",
   "devDependencies": {
     "appcache-webpack-plugin": "^1.3.0",
+    "autoprefixer": "^6.7.6",
     "babel-core": "^6.21.0",
     "babel-loader": "^6.2.10",
     "babel-plugin-transform-class-properties": "^6.19.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-plugin-transform-react-remove-prop-types": "^0.3.2",
     "babel-plugin-transform-runtime": "^6.22.0",
-    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-env": "^1.2.1",
     "babel-preset-react": "^6.11.1",
     "babel-preset-stage-0": "^6.5.0",
     "classnames": "^2.2.5",
@@ -26,14 +28,32 @@
     "html-webpack-plugin": "^2.26.0",
     "mkdirp": "^0.5.1",
     "node-sass": "^4.5.0",
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0",
-    "react-hot-loader": "^1.3.0",
+    "postcss-loader": "^1.3.3",
+    "react-hot-loader": "^3.0.0-beta.6",
     "sass-loader": "^5.0.1",
     "style-loader": "^0.13.1",
+    "tobit-chayns_components": "^1.0.33",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
-    "webpack-replace": "^1.0.0",
-    "tobit-chayns_components": "^1.0.33"
-  }
+    "webpack-replace": "^1.0.0"
+  },
+  "dependencies": {
+    "classlist-polyfill": "^1.0.3",
+    "react": "^15.4.2",
+    "react-dom": "^15.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TobitSoftware/chayns-template-react-es6.git"
+  },
+  "keywords": [
+    "chayns",
+    "react",
+    "es6",
+    "template"
+  ],
+  "bugs": {
+    "url": "https://github.com/TobitSoftware/chayns-template-react-es6/issues"
+  },
+  "homepage": "https://github.com/TobitSoftware/chayns-template-react-es6#readme"
 }

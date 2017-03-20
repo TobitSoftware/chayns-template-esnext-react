@@ -1,7 +1,8 @@
 import React from 'react';
 
+import {Mode} from 'tobit-chayns_components/react-chayns-modeswitch';
 import UserList from './user_view/UserList';
-import PersonFinder from './admin_view/PersonFinder';
+import PersonFinder from './admin_view/PersonFinderWrapper';
 
 export default class Content extends React.Component{
     constructor(){
@@ -16,7 +17,7 @@ export default class Content extends React.Component{
         this.addUser = this.addUser.bind(this);
     }
 
-    //Pushs an user object to the state 'user' and refresh's the react component 'UserList'
+    //Push´s an user object to the state 'user' and refresh's the react component 'UserList'
     addUser(object) {
         let user = this.state.user;
         user.push(object.user);
@@ -28,9 +29,17 @@ export default class Content extends React.Component{
     render() {
         return(
             <div className="tapp__content content">
-                <PersonFinder
-                    addUser={this.addUser}  //Provide the addUser function to the person finder as a prop
-                />
+                {/**
+                 * Everything defined as a child of Mode is only visible for users
+                 * in the UAC-Group 1
+                 *
+                 * The UAC-Group 1 is defined for chayns-Manager
+                 */}
+                <Mode mode={1} group={1}>
+                    <PersonFinder
+                        addUser={this.addUser}  //Provide the addUser function to the person finder as a prop
+                    />
+                </Mode>
                 <UserList
                     user={this.state.user} //Provide the user list array to the UserList element as a prop
                 />

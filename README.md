@@ -1,4 +1,4 @@
-chayns with React + ES2015 - Template
+chayns with React + ES.NEXT - Template
 ===================
 This template contains a tapp using the chayns ModeSwitch, Accordion and PersonFinder components.<br>
 If you're a chayns® manager you can switch to the specific mode and a PersonFinder will get visible.<br>
@@ -8,37 +8,26 @@ This template will help you getting started with building Tapps for your chayns�
 
 Setup
 -------------
-Install all project dependencies:
+Install all project dependencies: </br>
 ```
-npm i
+npm i /**or yarn*/
 ```
 Build the empty folder structure of your project:
 ```
-npm run setup
+npm run setup /**or yarn run setup*/
 ```
 Start your webpack-dev-server for debugging your project:
 ```
-npm start
-```
-To test your site you need a Chayns site and rights to add content. To add your site to Chayns we need to do some changes:
-
-In webpack/dev.babel.js:
-```
-webpack-dev-server/client?http://0.0.0.0:8080
-```
-0.0.0.0 to your ip like 192.168.178.XXX
-
-In package.json:
-```
-"start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
+npm start /**or yarn start*/
 ```
 
-When you have changed this settings you need to go to your Chayns site. There you need to follow these steps:
+The webpack-dev-server is now running on your localhost on the port 8080. If the port is not available you can change it in the dev.babel.js in the webpack folder.
+You can now implement the example Tapp to your chayns® site:
 
 1. Go to configuration -> Tapps
 2. Click ```Add Tapp```
 3. Use external content
-4. Fill out the name and in the field data source put your ip like this: ```http://192.168.178.XXX/index.html```
+4. Fill out the name and in the field data source put your ip like this: ```localhost:8080```
 5. Click ```add```
 
 
