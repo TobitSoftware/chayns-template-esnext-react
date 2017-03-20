@@ -1,13 +1,12 @@
 {
   "name": "chayns-template-esnext-react",
   "version": "1.0.1",
-  "description": "chayns-template-esnext-react",
+  "description": "This template will help you getting started with building Tapps for your chayns®-Website with React and ESNext.",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
-    "qa": "webpack -p --colors --progress --config ./webpack/qa.babel.js",
-    "release": "webpack -p --colors --progress --config ./webpack/prod.babel.js",
-    "setup": "mkdirp ./src/utils && mkdirp ./src/components/admin_view && mkdirp ./src/components/user_view"
+    "start": "webpack-dev-server --config ./webpack/dev.babel.js",
+    "build": "webpack -p --config ./webpack/prod.babel.js",
+    "build:qa": "webpack -p --config ./webpack/qa.babel.js"
   },
   "author": "Tobit.Software",
   "license": "ISC",
@@ -44,16 +43,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/TobitSoftware/chayns-template-react-es6.git"
+    "url": "git+https://github.com/TobitSoftware/chayns-template-esnext-react.git"
   },
   "keywords": [
     "chayns",
     "react",
     "es6",
+    "exnext",
     "template"
   ],
   "bugs": {
-    "url": "https://github.com/TobitSoftware/chayns-template-react-es6/issues"
+    "url": "https://github.com/TobitSoftware/chayns-template-esnext-react/issues"
   },
-  "homepage": "https://github.com/TobitSoftware/chayns-template-react-es6#readme"
+  "homepage": "https://github.com/TobitSoftware/chayns-template-esnext-react#readme"
 }
