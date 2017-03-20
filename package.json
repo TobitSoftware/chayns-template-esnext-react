@@ -1,15 +1,15 @@
 {
-  "name": "alibi",
+  "name": "chayns-template-es6-react",
   "version": "1.0.0",
-  "description": "Alibi",
+  "description": "chayns-template-es6-react",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js",
+    "start": "webpack-dev-server --colors --progress --config ./webpack/dev.babel.js --host 0.0.0.0 --port 8080",
     "qa": "webpack -p --colors --progress --config ./webpack/qa.babel.js",
     "release": "webpack -p --colors --progress --config ./webpack/prod.babel.js",
     "setup": "mkdirp ./src/utils && mkdirp ./src/components/admin_view && mkdirp ./src/components/user_view"
   },
-  "author": "Philipp Hugenroth",
+  "author": "Tobit.Software",
   "license": "ISC",
   "devDependencies": {
     "appcache-webpack-plugin": "^1.3.0",
@@ -33,6 +33,7 @@
     "style-loader": "^0.13.1",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.3.0",
-    "webpack-replace": "^1.0.0"
+    "webpack-replace": "^1.0.0",
+    "tobit-chayns_components": "^1.0.33"
   }
 }
