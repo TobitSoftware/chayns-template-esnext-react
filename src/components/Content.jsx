@@ -1,11 +1,11 @@
 import React from 'react';
 
-import {Mode} from 'tobit-chayns_components/react-chayns-modeswitch';
+import { Mode } from 'tobit-chayns_components/react-chayns-modeswitch';
 import UserList from './user_view/UserList';
 import PersonFinder from './admin_view/PersonFinderWrapper';
 
-export default class Content extends React.Component{
-    constructor(){
+export default class Content extends React.Component {
+    constructor() {
         super();
         /**
          * Apply an array containing selected users to the content
@@ -17,17 +17,18 @@ export default class Content extends React.Component{
         this.addUser = this.addUser.bind(this);
     }
 
-    //Push´s an user object to the state 'user' and refresh's the react component 'UserList'
+    /**
+     * Push´s an user object to the state 'user' and refresh's the react component 'UserList'
+     */
     addUser(object) {
-        let user = this.state.user;
-        user.push(object.user);
+        const { user } = this.state;
         this.setState({
-            user: user
+            user: [...user, object.user]
         });
     }
 
     render() {
-        return(
+        return (
             <div className="tapp__content content">
                 {/**
                  * Everything defined as a child of Mode is only visible for users
