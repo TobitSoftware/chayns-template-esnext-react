@@ -1,7 +1,7 @@
 import React from 'react';
 import Accordion from 'tobit-chayns_components/react-chayns-accordion';
 
-import './UserList.scss';
+import './user-list.scss';
 
 export default class UserList extends React.Component {
     /**
