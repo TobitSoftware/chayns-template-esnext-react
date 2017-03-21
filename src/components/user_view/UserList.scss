@@ -1,15 +1,14 @@
 .user{
-
     display: flex;
     align-items: center;
     margin-bottom: 10px;
 
-    &_image{
+    &__image{
         height: 40px;
         min-width: 40px;
         margin-right: 10px;
     }
-    &_name{
+    &__name{
         font-size: 17px;
     }
 }
