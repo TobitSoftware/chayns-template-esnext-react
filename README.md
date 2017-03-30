@@ -1,3 +1,5 @@
+[![license](https://img.shields.io/github/license/TobitSoftware/chayns-template-esnext-react.svg)]() [![GitHub pull requests](https://img.shields.io/github/issues-pr/TobitSoftware/chayns-template-esnext-react.svg)]() [![](https://img.shields.io/github/issues-pr-closed-raw/TobitSoftware/chayns-template-esnext-react.svg)]()
+
 chayns with React + ES.NEXT - Template
 ===================
 This template contains a tapp using the chayns ModeSwitch, Accordion and PersonFinder components.<br>
