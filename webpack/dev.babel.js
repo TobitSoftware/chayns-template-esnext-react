@@ -12,7 +12,8 @@ export default {
         port: 8080,
         historyApiFallback: true,
         compress: true,
-        hot: true
+        hot: true,
+        disableHostCheck: true
     },
     devtool: 'inline-source-map',
     plugins: [
