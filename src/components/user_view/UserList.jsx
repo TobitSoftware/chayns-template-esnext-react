@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Accordion from 'tobit-chayns_components/react-chayns-accordion';
 
 import './user-list.scss';
@@ -8,7 +9,7 @@ export default class UserList extends React.Component {
      * Whenever the user prop gets a new value re-render this element. Users were added in the Content.jsx via the PersonFinder
      */
     static propTypes = {
-        user: React.PropTypes.arrayOf(React.PropTypes.object)
+        user: PropTypes.arrayOf(PropTypes.object)
     };
 
     /**
