@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import PersonFinder from 'tobit-chayns_components/react-chayns-personfinder';
+import { PersonFinder } from 'chayns-components';
 
 const PersonFinderWrapper = ({ addUser }) => (
     <PersonFinder
@@ -10,12 +10,15 @@ const PersonFinderWrapper = ({ addUser }) => (
          * onChange is a person finder specified event provided via the chayns api
          * it returns the selected user to the addUser function
          */
-        onChange={addUser}
+        onChange={(res) => {
+            res.node.value = '';
+            addUser(res.user);
+        }}
     />
 );
 
 PersonFinderWrapper.propTypes = {
-    addUser: PropTypes.func
+    addUser: PropTypes.func.isRequired
 };
 
 export default PersonFinderWrapper;

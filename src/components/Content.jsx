@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Mode } from 'tobit-chayns_components/react-chayns-modeswitch';
+import { Mode } from 'chayns-components';
 import UserList from './user_view/UserList';
 import PersonFinder from './admin_view/PersonFinderWrapper';
 
@@ -12,22 +12,33 @@ export default class Content extends React.Component {
          * It can be filled by using the person finder in the chayns® manager view
          */
         this.state = {
-            user: []
+            users: []
         };
-        this.addUser = this.addUser.bind(this);
     }
 
     /**
      * Push´s an user object to the state 'user' and refresh's the react component 'UserList'
      */
-    addUser(object) {
-        const { user } = this.state;
+    addUser = (user) => {
+        const { users } = this.state;
+        if (users.find(u => u.userId === user.userId)) {
+            return;
+        }
+
         this.setState({
-            user: [...user, object.user]
+            users: [...users, user]
         });
-    }
+    };
+
+    removeUser = (userId) => {
+        const { users } = this.state;
+        this.setState({
+            users: users.filter(u => u.userId !== userId)
+        });
+    };
 
     render() {
+        const { users } = this.state;
         return (
             <div className="tapp__content content">
                 {/**
@@ -38,11 +49,12 @@ export default class Content extends React.Component {
                  */}
                 <Mode mode={1} group={1}>
                     <PersonFinder
-                        addUser={this.addUser}  //Provide the addUser function to the person finder as a prop
+                        addUser={this.addUser}  // Provide the addUser function to the person finder as a prop
                     />
                 </Mode>
                 <UserList
-                    user={this.state.user} //Provide the user list array to the UserList element as a prop
+                    user={users} // Provide the user list array to the UserList element as a prop
+                    removeUser={this.removeUser}
                 />
             </div>
         );

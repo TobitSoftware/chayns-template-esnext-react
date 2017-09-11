@@ -2,21 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import { AppContainer } from 'react-hot-loader';
-import { ModeSwitch } from 'tobit-chayns_components/react-chayns-modeswitch';
+import { ModeSwitch } from 'chayns-components';
 import App from './App';
 
 import SERVER_URL from './constants/server-url';
 
-const tappElement = document.querySelector('.tapp');
+delete AppContainer.prototype.unstable_handleError; // disables ErrorPage of HotModuleReplacement
+
 
 /**
  * Renders a component as entry point of your application into the tapp element.
  * @param Component
  */
-const render = Component => {
+const tappElement = document.querySelector('.tapp');
+const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
-            <Component />
+            <Component/>
         </AppContainer>,
         tappElement
     );

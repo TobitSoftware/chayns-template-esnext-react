@@ -1,54 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Accordion from 'tobit-chayns_components/react-chayns-accordion';
+import { Accordion } from 'chayns-components';
+import User from './user/User';
 
-import './user-list.scss';
-
+/**
+ * Whenever the user prop gets a new value this component re-renders. Users were added in the Content.jsx via the PersonFinder
+ */
 export default class UserList extends React.Component {
-    /**
-     * Whenever the user prop gets a new value re-render this element. Users were added in the Content.jsx via the PersonFinder
-     */
+
     static propTypes = {
-        user: PropTypes.arrayOf(PropTypes.object)
+        user: PropTypes.arrayOf(PropTypes.object),
+        removeUser: PropTypes.func.isRequired
+    };
+    static defaultProps = {
+        user: []
     };
 
-    /**
-     * If at least one user was selected, render the users inside the user list,
-     * else return a placeholder text.
-     */
-    getUserList() {
-        const { user } = this.props;
-        if (user.length > 0) {
-            return user.map(({ name, facebookId }, index) => {
-                return (
-                    <div className="user" key={index}>
-                        <div
-                            className="user__image"
-                            style={{
-                                backgroundSize: 'cover',
-                                backgroundImage: `url(http://graph.facebook.com/${facebookId}/picture?type=square`
-                            }}
-                        ></div>
-                        <div className="user__name">
-                            {name}
-                        </div>
-                    </div>
-                )
-            })
-        } else {
-            return <div>No users have been selected.</div>
-        }
-    }
 
     render() {
+        const { user, removeUser } = this.props;
+
         return (
             <Accordion head="User List" defaultOpened>
                 <div className="accordion__content" id="usersList">
                     {
-                        this.getUserList()
+                        user && user.map(({ name, userId }) => (
+                            <User
+                                key={userId}
+                                name={name}
+                                userId={userId}
+                                removeUser={removeUser}
+                            />
+                        ))
+                    }
+                    {
+                        user.length === 0 && <div>No users have been selected.</div>
                     }
                 </div>
             </Accordion>
         );
     }
-};
+}
