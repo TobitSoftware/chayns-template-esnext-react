@@ -27,10 +27,7 @@ export default {
         new webpack.NamedModulesPlugin(),
         new webpack.NoEmitOnErrorsPlugin(),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development'),
-            __DEV__: true,
-            __QA__: false,
-            __LIVE__: false,
+            'process.env.NODE_ENV': JSON.stringify('development')
         })
     ]
 };

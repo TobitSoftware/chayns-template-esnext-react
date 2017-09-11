@@ -23,10 +23,7 @@ export default {
             output: 'cache.manifest'
         }),
         new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('qa'),
-            __DEV__: false,
-            __QA__: true,
-            __LIVE__: false,
+            'process.env.NODE_ENV': JSON.stringify('qa')
         }),
     ]
 };
