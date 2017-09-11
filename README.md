@@ -13,14 +13,14 @@ Development
 1. Install all project dependencies with  `npm i`
 2. Start your webpack-dev-server for debugging your project with `npm start`
     * The webpack-dev-server is now running on your localhost on the port 8080. If the port is not available you can change it in the dev.babel.js in the webpack folder.
-
-3. Implement the example Tapp to your chayns® site .
+3. Enable eslint in your development environment. *(not necessary, but recommended)*
+4. Implement the example Tapp to your chayns® site .
     1. Go to configuration -> Tapps
     2. Click `Add Tapp`
     3. Use external content
     4. Give the Tapp a name and type in the following URL : `http://localhost:8080`
     5. Click `add`
-4. Start development.
+5. Start development.
 
 > **Hint:** Writing Tapps with React? You might also want to take a look at our [React Style Guide][2].
 
