@@ -1,33 +1,45 @@
 import path from 'path';
+import fs from 'fs';
 import webpack from 'webpack';
+import merge from 'webpack-merge';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import getBaseConfig from './base-config';
+import common from './common';
 
 const ROOT_PATH = path.resolve('./');
+const ssl = {};
 
-export default {
-    ...getBaseConfig(true),
-    devServer: {
-        host: '0.0.0.0',
-        port: 8080,
-        historyApiFallback: true,
-        compress: true,
-        hot: true,
-        disableHostCheck: true
-    },
-    devtool: 'inline-source-map',
-    plugins: [
-        new HtmlWebpackPlugin({
-            template: path.resolve(ROOT_PATH, 'src/index.dev.html')
-        }),
-        new webpack.HotModuleReplacementPlugin(),
-        new webpack.LoaderOptionsPlugin({
-            debug: true
-        }),
-        new webpack.NamedModulesPlugin(),
-        new webpack.NoEmitOnErrorsPlugin(),
-        new webpack.DefinePlugin({
-            'process.env.NODE_ENV': JSON.stringify('development')
-        })
-    ]
-};
+try {
+    ssl.cert = fs.readFileSync(path.join(__dirname, 'ssl', 'ssl.crt'));
+    ssl.key = fs.readFileSync(path.join(__dirname, 'ssl', 'ssl.key'));
+} catch (e) {
+    console.log('\n---------------------------\nNo SSL Certificate found.\n---------------------------\n');
+}
+
+export default merge(
+    common,
+    {
+        mode: 'development',
+        devServer: {
+            host: '0.0.0.0',
+            port: 8080,
+            historyApiFallback: true,
+            compress: true,
+            disableHostCheck: true,
+            hot: true,
+            cert: ssl.cert,
+            key: ssl.key,
+        },
+        devtool: 'inline-source-map',
+        plugins: [
+            new HtmlWebpackPlugin({
+                template: path.resolve(ROOT_PATH, 'src/index.dev.html')
+            }),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.LoaderOptionsPlugin({
+                debug: true
+            }),
+            new webpack.NamedModulesPlugin(),
+            new webpack.NoEmitOnErrorsPlugin()
+        ]
+    }
+);

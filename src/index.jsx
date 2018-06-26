@@ -1,28 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
-import { AppContainer } from 'react-hot-loader';
 import { ModeSwitch } from 'chayns-components';
 import App from './App';
 
 import SERVER_URL from './constants/server-url';
-
-delete AppContainer.prototype.unstable_handleError; // disables ErrorPage of HotModuleReplacement
-
-
-/**
- * Renders a component as entry point of your application into the tapp element.
- * @param Component
- */
-const tappElement = document.querySelector('.tapp');
-const render = (Component) => {
-    ReactDOM.render(
-        <AppContainer>
-            <Component/>
-        </AppContainer>,
-        tappElement
-    );
-};
 
 /**
  * The function waits till the chayns api is successfully loaded and
@@ -37,12 +18,8 @@ async function init() {
 
         await chayns.ready;
 
-        render(App);
-
-        // use hot-module-replacement if available
-        if (module.hot) {
-            module.hot.accept('./App', () => render(App));
-        }
+        const tappElement = document.querySelector('.tapp');
+        ReactDOM.render(<App />, tappElement);
 
         /**
          * Initialize the ModeSwitch. The available modes are 'user mode' (default) and 'chayns® manager'.
