@@ -5,17 +5,22 @@
       {
         "targets": {
           "browsers": [
-            "last 3 versions"
+            ">1%",
+            "last 4 versions",
+            "Firefox ESR",
+            "not ie < 10"
           ]
         },
         "modules": false
       }
     ],
-    "stage-0",
     "react"
   ],
   "plugins": [
     "transform-runtime",
+    "transform-decorators-legacy",
+    "transform-class-properties",
+    "transform-object-rest-spread",
     "react-hot-loader/babel"
   ]
 }
