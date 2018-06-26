@@ -1,6 +1,6 @@
 import webpack from 'webpack';
 import webpackMerge from 'webpack-merge';
-import prodConfig from './production.babel';
+import prodConfig from './prod.babel';
 
 
 export default webpackMerge(
