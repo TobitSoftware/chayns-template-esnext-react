@@ -1,5 +1,6 @@
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
+import webpack from 'webpack';
 import merge from 'webpack-merge';
 import common from './common';
 
@@ -9,14 +10,16 @@ export default merge(
     common,
     {
         mode: 'production',
-        output: {
-            filename: '[name].bundle.js?[hash]',
-        },
         devtool: 'hidden-source-map',
         plugins: [
             new HtmlWebpackPlugin({
                 template: path.resolve(ROOT_PATH, 'src/index.html')
-            })
+            }),
+            new webpack.DefinePlugin({
+                __DEV__: false,
+                __STAGING__: false,
+                __PROD__: true,
+            }),
         ]
     }
 );

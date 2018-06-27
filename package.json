@@ -8,7 +8,8 @@
     "start:http": "webpack-dev-server --config ./webpack/dev.babel.js",
     "clean": "rimraf build",
     "build": "npm run clean && webpack -p --config ./webpack/prod.babel.js",
-    "build:staging": "npm run clean && webpack -p --config ./webpack/staging.babel.js"
+    "build:staging": "npm run clean && webpack -p --config ./webpack/staging.babel.js",
+    "eslint": "eslint ./src ./webpack"
   },
   "author": "Tobit.Software",
   "license": "ISC",

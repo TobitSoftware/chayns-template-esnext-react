@@ -5,7 +5,10 @@
     "es6": true
   },
   "globals": {
-    "chayns": true
+    "chayns": true,
+    "__DEV__": true,
+    "__STAGING__": true,
+    "__PROD__": true
   },
   "parser": "babel-eslint",
   "rules": {
