@@ -32,6 +32,7 @@ export default merge(
             hot: true,
             cert: ssl.cert,
             key: ssl.key,
+            https: true,
         },
         devtool: 'inline-source-map',
         plugins: [

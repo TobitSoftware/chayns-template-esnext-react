@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ModeSwitch } from 'chayns-components';
+import { ModeSwitch } from 'chayns-components/lib';
 import App from './App';
 
 import SERVER_URL from './constants/server-url';
@@ -18,6 +18,9 @@ async function init() {
 
         await chayns.ready;
 
+        /**
+         * Render the Component App inside the tappElement
+         */
         const tappElement = document.querySelector('.tapp');
         ReactDOM.render(<App />, tappElement);
 

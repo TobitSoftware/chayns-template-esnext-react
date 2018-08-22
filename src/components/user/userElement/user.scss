@@ -1,0 +1,37 @@
+.user {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &__image {
+    height: 40px;
+    min-width: 40px;
+    margin-right: 10px;
+    background-size: cover
+  }
+  &__name {
+    font-size: 17px;
+  }
+
+  &__remove {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    font-size: 20px;
+    cursor: pointer;
+  }
+}

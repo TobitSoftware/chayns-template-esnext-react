@@ -1,15 +1,15 @@
 import React from 'react';
 
-import { Mode } from 'chayns-components';
-import UserList from './user_view/UserList';
-import PersonFinder from './admin_view/PersonFinderWrapper';
+import { Mode } from 'chayns-components/lib';
+import UserList from './user/UserList';
+import PersonFinder from './personFinder/PersonFinderWrapper';
 
 export default class Content extends React.Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         /**
          * Apply an array containing selected users to the content
-         * It can be filled by using the person finder in the chayns® manager view
+         * It can be filled by using the PersonFinder-Component which is Visible in Adminmode
          */
         this.state = {
             users: []
@@ -17,7 +17,8 @@ export default class Content extends React.Component {
     }
 
     /**
-     * Push´s an user object to the state 'user' and refresh's the react component 'UserList'
+     * Push´s an user object to the state 'users' and refresh's the react component 'UserList'
+     * By Calling setState the renderfunction ist called automatically
      */
     addUser = (user) => {
         const { users } = this.state;
@@ -30,6 +31,10 @@ export default class Content extends React.Component {
         });
     };
 
+    /**
+     *  locally save the state `users` and filter the array by a userId
+     *  By Calling setState the renderfunction ist called automatically
+     */
     removeUser = (userId) => {
         const { users } = this.state;
         this.setState({
@@ -49,7 +54,7 @@ export default class Content extends React.Component {
                  */}
                 <Mode mode={1} group={1}>
                     <PersonFinder
-                        addUser={this.addUser}  // Provide the addUser function to the person finder as a prop
+                        addUser={this.addUser}// Provide the addUser function to the person finder as a prop
                     />
                 </Mode>
                 <UserList
